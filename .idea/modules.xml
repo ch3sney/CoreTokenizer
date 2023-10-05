@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CoreScanner.iml" filepath="$PROJECT_DIR$/CoreScanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoreTokenizer.iml" filepath="$PROJECT_DIR$/CoreTokenizer.iml" />
     </modules>
   </component>
 </project>
