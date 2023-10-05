@@ -13,8 +13,10 @@ public class CoreScanner {
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
         // poop
+        System.out.println("CoreScanner created");
         int returnedCode= 1;
         while(returnedCode!= -1){
+            System.out.println("run loop");
             returnedCode = tokenizeLine(reader);
         }
 
@@ -23,9 +25,14 @@ public class CoreScanner {
 
     private int tokenizeLine(BufferedReader reader) throws IOException {
         String currLine = reader.readLine();
-        while(currLine.isEmpty()){
-            if()
+        while(currLine != null && currLine.trim().isEmpty()) {
+            currLine = reader.readLine();
         }
+        if(currLine == null){
+            return -1;
+        }
+        System.out.println(currLine);
+        return 1;
     }
 
     public int getToken(){
