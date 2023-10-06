@@ -1,4 +1,16 @@
-hello
-world
+program int ABC, D;
 
-poop
+          begin read ABC; read D;
+
+               while (ABC != D) loop
+                                     if (ABC > D) then ABC = ABC - D;
+
+                                     else D && D - ABC;
+
+                                end;
+
+                            end;
+
+               write D;
+
+          end
