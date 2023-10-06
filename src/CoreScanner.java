@@ -32,15 +32,15 @@ public class CoreScanner {
 
         // Continually call tokenizeLine until it returns -1 (reaches EOS)
         int returnedCode;
-        do{
+        do {
             returnedCode = tokenizeLine(reader);
-        } while(returnedCode!= -1);
+        } while (returnedCode != -1);
     }
 
     private void populateList(HashSet<String> s, String filePath) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         String currLine = reader.readLine();
-        while(currLine != null){
+        while (currLine != null) {
             s.add(currLine);
             currLine = reader.readLine();
         }
@@ -48,17 +48,17 @@ public class CoreScanner {
 
     private int tokenizeLine(BufferedReader reader) throws IOException {
         String currLine = reader.readLine();
-        while(currLine != null && currLine.trim().isEmpty()) {
+        while (currLine != null && currLine.trim().isEmpty()) {
             currLine = reader.readLine();
         }
-        if(currLine == null){
+        if (currLine == null) {
             return -1;
         }
         currLine = normalizeLine(currLine);
         int position = 0;
-        while(position < currLine.length()){
+        while (position < currLine.length()) {
             String tokenOrSpaces = nextTokenOrSpaces(currLine, position);
-            if(!tokenOrSpaces.trim().isEmpty()){
+            if (!tokenOrSpaces.trim().isEmpty()) {
                 tokenStrings.add(tokenOrSpaces);
                 // Add token code
             }
@@ -68,15 +68,15 @@ public class CoreScanner {
         return 1;
     }
 
-    private String normalizeLine(String line){
+    private String normalizeLine(String line) {
         StringBuilder str = new StringBuilder();
-        for(String curr : specialSymbols){
-            line = line.replace(curr, " "+curr+" ");
+        for (String curr : specialSymbols) {
+            line = line.replace(curr, " " + curr + " ");
         }
-        return line+" ";
+        return line + " ";
     }
 
-    private String nextTokenOrSpaces(String line, int position){
+    private String nextTokenOrSpaces(String line, int position) {
         int i = position;
         boolean isSpace = line.charAt(i) == ' ' || line.charAt(i) == '\t';
         while (i < line.length() &&
@@ -86,15 +86,15 @@ public class CoreScanner {
         return line.substring(position, i);
     }
 
-    public int getToken(){
+    public int getToken() {
         return 0;
     }
 
-    public int intVal(){
+    public int intVal() {
         return 0;
     }
 
-    public String idName(){
+    public String idName() {
         return "";
     }
 
