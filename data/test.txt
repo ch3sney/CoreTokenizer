@@ -5,7 +5,7 @@ program int ABC, D;
                while (ABC != D) loop
                                      if (ABC > D) then ABC = ABC - D;
 
-                                     else D && D - ABC;
+                                     else D = D - ABC;
 
                                 end;
 
