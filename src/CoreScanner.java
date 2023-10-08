@@ -274,5 +274,4 @@ public class CoreScanner {
         // Return identifier value
         return tokenStrings.get(index);
     }
-
 }
