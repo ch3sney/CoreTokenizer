@@ -1,0 +1,20 @@
+TOKENIZER DESIGN:
+My tokenizer uses a lot of helper methods to achieve its goals. At its core is tokenize line. This
+method starts by extracting a single line. It then "normalizes" the spacing by adding spaces between
+spacial symbols and at the end of the line. After the line has been extracted and normalized, the method
+continually extracts token candidates and identifies their corresponding token number. It then stores this
+number and the string which it represents in private data structures.
+
+The constructor initializes the private data structures and tokenizes the first line. All other kernel
+methods are designed to the specification of the project description.
+
+TESTING:
+I tested my tokenizer using both the provided test files and my own test cases. I would tokens one by one
+to test small changes and how the tokenizer would react. I found printing the current status of token
+and tokenStrings to be very helpful in debugging.
+
+KNOWN BUGS:
+- Enabling assertions is required to use my intVal and idName methods.
+- I add "eos" and "error" to my tokenString data structure. Not sure if this is "allowed"...
+
+Thanks for reading!

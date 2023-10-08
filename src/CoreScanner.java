@@ -25,39 +25,6 @@ public class CoreScanner {
     private final HashMap<String, Integer> codeMappings;
 
     /*
-     * Populates set with symbols in given file.
-     */
-    private void populateList(HashSet<String> s, String filePath) throws IOException {
-        // Initialize reader
-        BufferedReader listReader = new BufferedReader(new FileReader(filePath));
-
-        String currLine = listReader.readLine();
-        while (currLine != null) {
-            // Add symbol to set
-            s.add(currLine);
-            currLine = listReader.readLine();
-        }
-        listReader.close();
-    }
-
-    /*
-     * Populates map with symbols and corresponding codes.
-     */
-    private void populateMap(HashMap<String, Integer> m, String filePath) throws IOException {
-        // Initialize reader
-        BufferedReader mapReader = new BufferedReader(new FileReader(filePath));
-
-        String currLine = mapReader.readLine();
-        while (currLine != null) {
-            // Add symbol and corresponding code to map
-            String[] split = currLine.split(" ");
-            m.put(split[0], Integer.valueOf(split[1]));
-            currLine = mapReader.readLine();
-        }
-
-    }
-
-    /*
      * Tokenizes a single line in provided file.
      */
     private void tokenizeLine(BufferedReader reader) throws IOException {
@@ -105,6 +72,39 @@ public class CoreScanner {
         }
         // Combine tokens greedily
         greedifyLine(initialSize);
+    }
+
+    /*
+     * Populates set with symbols in given file.
+     */
+    private void populateList(HashSet<String> s, String filePath) throws IOException {
+        // Initialize reader
+        BufferedReader listReader = new BufferedReader(new FileReader(filePath));
+
+        String currLine = listReader.readLine();
+        while (currLine != null) {
+            // Add symbol to set
+            s.add(currLine);
+            currLine = listReader.readLine();
+        }
+        listReader.close();
+    }
+
+    /*
+     * Populates map with symbols and corresponding codes.
+     */
+    private void populateMap(HashMap<String, Integer> m, String filePath) throws IOException {
+        // Initialize reader
+        BufferedReader mapReader = new BufferedReader(new FileReader(filePath));
+
+        String currLine = mapReader.readLine();
+        while (currLine != null) {
+            // Add symbol and corresponding code to map
+            String[] split = currLine.split(" ");
+            m.put(split[0], Integer.valueOf(split[1]));
+            currLine = mapReader.readLine();
+        }
+
     }
 
     /*
