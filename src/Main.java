@@ -6,7 +6,7 @@ public class Main {
         CoreScanner scanner = new CoreScanner(args[0]);
 
         // While ending token is not encountered, continually skipToken and print
-        while(scanner.getToken() != 33 && scanner.getToken() != 34) {
+        while (scanner.getToken() != 33 && scanner.getToken() != 34) {
             System.out.println(scanner.getToken());
             scanner.skipToken();
         }
@@ -14,10 +14,9 @@ public class Main {
         System.out.println(scanner.getToken());
 
         // Print appropriate message to console
-        if(scanner.getToken() == 33){
+        if (scanner.getToken() == 33) {
             System.out.println("SCANNER: Reached end of stream.");
-        }
-        else if(scanner.getToken() == 34){
+        } else if (scanner.getToken() == 34) {
             System.out.println("SCANNER: Error encountered.");
         }
     }

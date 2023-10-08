@@ -30,6 +30,7 @@ public class CoreScanner {
     private void populateList(HashSet<String> s, String filePath) throws IOException {
         // Initialize reader
         BufferedReader listReader = new BufferedReader(new FileReader(filePath));
+
         String currLine = listReader.readLine();
         while (currLine != null) {
             // Add symbol to set
@@ -45,6 +46,7 @@ public class CoreScanner {
     private void populateMap(HashMap<String, Integer> m, String filePath) throws IOException {
         // Initialize reader
         BufferedReader mapReader = new BufferedReader(new FileReader(filePath));
+
         String currLine = mapReader.readLine();
         while (currLine != null) {
             // Add symbol and corresponding code to map
@@ -111,19 +113,20 @@ public class CoreScanner {
     private void greedifyLine(int lineIndex) {
         // Iterate from starting index to end of array
         int i = lineIndex;
+
         while (i < tokens.size() - 1) {
             // Get adjacent tokens
             int token = tokens.get(i);
             int nextToken = tokens.get(i + 1);
 
             // Combine adjacent tokens which match criteria
-            if(token == 15 && nextToken == 14){
+            if (token == 15 && nextToken == 14) {
                 greedySwap(i, 25, "!=");
-            } else if(token == 14 && nextToken == 14) {
+            } else if (token == 14 && nextToken == 14) {
                 greedySwap(i, 26, "!=");
-            } else if(token == 27 && nextToken == 14) {
+            } else if (token == 27 && nextToken == 14) {
                 greedySwap(i, 29, "<=");
-            } else if(token == 28 && nextToken == 14) {
+            } else if (token == 28 && nextToken == 14) {
                 greedySwap(i, 30, ">=");
             } else {
                 i++;
@@ -134,7 +137,7 @@ public class CoreScanner {
     /*
      * Remove two symbols and replace with single greedy token
      */
-    private void greedySwap(int index, int code, String str){
+    private void greedySwap(int index, int code, String str) {
         // Update tokenStrings
         tokenStrings.remove(index + 1);
         tokenStrings.remove(index);
@@ -248,25 +251,25 @@ public class CoreScanner {
 
     public void skipToken() throws IOException {
         // If at end of current line and token is not 33 or 34, tokenize a new line
-        if(index == tokens.size() - 1 && tokens.get(index) != 33 && tokens.get(index) != 34){
+        if (index == tokens.size() - 1 && tokens.get(index) != 33 && tokens.get(index) != 34) {
             tokenizeLine(reader);
         }
 
         // If token is not 33 or 34, increase index
-        if(tokens.get(index) != 33 && tokens.get(index) != 34){
+        if (tokens.get(index) != 33 && tokens.get(index) != 34) {
             index++;
         }
     }
 
     public int intVal() {
-        assert tokens.get(index) == 31: "Violation of: current token is integer";
+        assert tokens.get(index) == 31 : "Violation of: current token is integer";
 
         // Return int value
         return Integer.parseInt(tokenStrings.get(index));
     }
 
     public String idName() {
-        assert tokens.get(index) == 32: "Violation of: current token is identifier";
+        assert tokens.get(index) == 32 : "Violation of: current token is identifier";
 
         // Return identifier value
         return tokenStrings.get(index);
