@@ -227,11 +227,11 @@ public class CoreScanner {
 
         // Initialize specialSymbols
         specialSymbols = new HashSet<String>();
-        populateList(specialSymbols, "data/specialSymbols.txt");
+        populateList(specialSymbols, "../data/specialSymbols.txt");
 
         // Initialize codeMappings
         codeMappings = new HashMap<String, Integer>();
-        populateMap(codeMappings, "data/codeMappings.txt");
+        populateMap(codeMappings, "../data/codeMappings.txt");
 
         // Continually call tokenizeLine until it returns -1 (reaches EOS)
         tokenizeLine(reader);
